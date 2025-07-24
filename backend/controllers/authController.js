@@ -19,6 +19,8 @@ exports.login = async (req, res) => {
         return res.status(401).json({ error: 'Contraseña incorrecta' });
       }
   
+      // Registrar login exitoso
+      
       // ✅ GUARDAR LOG DEL INICIO DE SESIÓN
       await db.query(
         'INSERT INTO login_logs (usuario_id, nombre) VALUES (?, ?)',
@@ -29,7 +31,7 @@ exports.login = async (req, res) => {
       const token = jwt.sign(
         { id: usuario.id, rol: usuario.rol },
         process.env.JWT_SECRET,
-        { expiresIn: '1h' }
+        { expiresIn: '6h' }
       );
   
       res.json({ token });
@@ -43,7 +45,7 @@ exports.login = async (req, res) => {
 // Registrar nuevo usuario
 exports.registrarUsuario = async (req, res) => {
   const { nombre, apellidos, contraseña, rol } = req.body;
-
+  console.log('datos', req.body);
   try {
     const hash = await bcrypt.hash(contraseña, 8);
     await db.query(
