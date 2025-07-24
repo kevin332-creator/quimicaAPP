@@ -101,7 +101,7 @@ exports.obtenerLogins = async (req, res) => {
       const { id: usuarioId, rol } = req.usuario;
   
       let query = `
-        SELECT l.id,  l.fecha_login, u.nombre, u.apellidos, u.rol
+        SELECT l.id,  l.fecha, u.nombre, u.apellidos, u.rol
         FROM login_logs l
         JOIN usuarios u ON l.usuario_id = u.id
       `;
@@ -118,7 +118,7 @@ exports.obtenerLogins = async (req, res) => {
       }
   
       query += where ? ` ${where}` : '';
-      query += ' ORDER BY l.fecha_login DESC';
+      query += ' ORDER BY l.fecha DESC';
   
       const [logs] = await db.query(query, params);
       res.json(logs);
