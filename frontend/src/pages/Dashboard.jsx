@@ -90,7 +90,8 @@ function Dashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {usuarios.map((u) => (
+                 {/* filtrar solo estudiantes */}
+                     {usuarios.filter(u => u.rol === 'estudiante').map((u) => (
                     <tr key={u.id}>
                       <td>{u.id}</td>
                       <td>{u.nombre}</td>

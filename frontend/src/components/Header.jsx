@@ -38,7 +38,10 @@ function Header() {
     
     {/* Elementos derechos */}
     <div className="d-flex align-items-center gap-3">
-      <Link to="/juegos" className='text-white text-decoration-none hover-underline'>Juegar</Link>
+      {usuario?.rol === 'estudiante' && (
+  <Link to="/juegos" className='text-white text-decoration-none hover-underline'>Jugar</Link>
+)}
+
       {usuario ? (
         <Link to="/perfil" className="text-white text-decoration-none hover-underline">
           {usuario.nombre}
