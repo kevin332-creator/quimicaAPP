@@ -3,12 +3,14 @@ import API from '../services/api';
 import { useNavigate, Link } from 'react-router-dom';
 
 
+
+
 function Dashboard() {
   const [usuario, setUsuario] = useState(null);
   const [usuarios, setUsuarios] = useState([]);
   const [mostrarModalAlumno, setMostrarModalAlumno] = useState(false);
   const [nuevoAlumno, setNuevoAlumno] = useState({
-    nombre: '', apellidos: '', email: '', password: '', rol: 'estudiante'
+    nombre: '', apellidos:  '', contraseña: '', rol: 'estudiante'
   });
 
   const navigate = useNavigate();
@@ -29,32 +31,34 @@ function Dashboard() {
     fetchData();
   }, []);
 
-  const handleRegistrarAlumno = async () => {
-    try {
-      await API.post('/auth/registrar-alumno', nuevoAlumno);
-      setMostrarModalAlumno(false);
-      setNuevoAlumno({ nombre: '', apellidos: '', email: '', password: '', rol: 'estudiante' });
+const handleRegistrarAlumno= async () => {
+  try {
+    
+    await API.post('/auth/register', nuevoAlumno);
+    alert('✅ Alumno registrado correctamente');
+    setMostrarModalAlumno(false);
+    
+    // Actualizar lista
+    const usuariosRes = await API.get('/auth/usuarios');
+    setUsuarios(usuariosRes.data);
+    
+  } catch (error) {
+    console.error('❌ Error al registrar alumno:', error.response?.data || error);
+    alert('❌ Error al registrar alumno');
+  }
+};
 
-      const usuariosRes = await API.get('/auth/usuarios');
-      setUsuarios(usuariosRes.data);
-
-      alert('✅ Alumno registrado correctamente');
-    } catch (err) {
-      alert('❌ Error al registrar alumno');
-    }
-  };
-
+ 
   const eliminarAlumno = async (id) => {
     if (window.confirm('¿Estás seguro de eliminar este alumno?')) {
       try {
         await API.delete(`/auth/usuarios/${id}`);
-
         const usuariosRes = await API.get('/auth/usuarios');
         setUsuarios(usuariosRes.data);
-
         alert('✅ Alumno eliminado');
       } catch (err) {
-        alert('❌ Error al eliminar alumno');
+        console.error('❌ Error al eliminar alumno:', err.response?.data || err);
+        alert('❌ Error al eliminar alumno: ' + (err.response?.data?.message || err.message));
       }
     }
   };
@@ -90,8 +94,7 @@ function Dashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                 {/* filtrar solo estudiantes */}
-                     {usuarios.filter(u => u.rol === 'estudiante').map((u) => (
+                  {usuarios.filter(u => u.rol === 'estudiante').map((u) => (
                     <tr key={u.id}>
                       <td>{u.id}</td>
                       <td>{u.nombre}</td>
@@ -146,15 +149,7 @@ function Dashboard() {
                     onChange={e => setNuevoAlumno({ ...nuevoAlumno, apellidos: e.target.value })}
                   />
                 </div>
-                <div className="mb-3">
-                  <label className="form-label">Email</label>
-                  <input 
-                    type="email"
-                    className="form-control"
-                    value={nuevoAlumno.email}
-                    onChange={e => setNuevoAlumno({ ...nuevoAlumno, email: e.target.value })}
-                  />
-                </div>
+               
                 <div className="mb-3">
                   <label className="form-label">Contraseña</label>
                   <input 
@@ -165,6 +160,16 @@ function Dashboard() {
                   />
                 </div>
               </div>
+              <div className="mb-3">
+                <label className="form-label">Rol</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={nuevoAlumno.rol}
+                  readOnly
+                />
+              </div>
+
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" onClick={() => setMostrarModalAlumno(false)}>
                   Cancelar
@@ -177,7 +182,6 @@ function Dashboard() {
           </div>
         </div>
       )}
-
     </div>
   );
 }

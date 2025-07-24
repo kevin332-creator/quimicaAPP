@@ -43,7 +43,6 @@ exports.login = async (req, res) => {
 // Registrar nuevo usuario
 exports.registrarUsuario = async (req, res) => {
   const { nombre, apellidos, contraseña, rol } = req.body;
-
   try {
     const hash = await bcrypt.hash(contraseña, 8);
     await db.query(
@@ -151,4 +150,33 @@ exports.obtenerLogins = async (req, res) => {
       res.status(500).json({ mensaje: 'Error al obtener usuarios' });
     }
   };
-  
+  // ✅ Eliminar estudiante por ID
+exports.eliminarEstudiante = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const [rows] = await db.query('SELECT * FROM usuarios WHERE id = ?', [id]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+    }
+
+    const usuario = rows[0];
+
+    if (usuario.rol !== 'estudiante') {
+      return res.status(403).json({ mensaje: 'Solo se pueden eliminar estudiantes' });
+    }
+
+    // Solo docentes o admin pueden eliminar
+    if (req.usuario.rol !== 'docente' && req.usuario.rol !== 'admin') {
+      return res.status(403).json({ mensaje: 'No autorizado para eliminar estudiantes' });
+    }
+
+    await db.query('DELETE FROM usuarios WHERE id = ?', [id]);
+
+    res.json({ mensaje: 'Estudiante eliminado correctamente' });
+  } catch (error) {
+    console.error('❌ Error al eliminar estudiante:', error);
+    res.status(500).json({ mensaje: 'Error al eliminar estudiante' });
+  }
+};
