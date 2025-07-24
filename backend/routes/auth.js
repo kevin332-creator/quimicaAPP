@@ -16,6 +16,7 @@ router.get('/me', verificarToken, authController.me);
 router.get('/logins', verificarToken, authController.obtenerLogins);
 
 router.get('/usuarios', verificarToken, authController.obtenerUsuariosPorRol);
-
+// ✅ Eliminar estudiante
+router.delete('/usuarios/:id', verificarToken, authController.eliminarEstudiante);
 
 module.exports = router;
