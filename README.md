@@ -45,8 +45,8 @@
 
 ### 🎨 Frontend (React + Vite)
 - ✅ Interfaz intuitiva, responsiva y moderna
-- ✅ Páginas de login, dashboard, recursos por tema
-- ✅ Panel para administradores
+- ✅ Páginas de login, dashboard, gestion de estudiantes, tabla periodicas.
+- ✅ Panel para administrativo de docente.
 - ✅ Navegación protegida según el rol del usuario
 - ✅ Alertas interactivas y retroalimentación visual
 
@@ -147,12 +147,27 @@ npm run dev
 - Gestión mediante Sequelize ORM
 - Esquema principal:
 
-| Tabla         | Descripción                        |
-|---------------|------------------------------------|
-| `usuarios`    | Almacena datos de usuarios         |
-| `recursos`    | Materiales de química (PDF, img)   |
-| `notificaciones` | Mensajes visibles en el sistema |
-| `categorias`  | Clasificación de los recursos      |
+|   Tabla                   | 📌 Descripción                                                                 |
+|---------------------------|---------------------------------------------------------------------------------|
+| `usuarios`                | Almacena datos de usuarios del sistema: estudiantes, docentes y administradores. |
+| `recursos`                | Archivos relacionados a materiales educativos (PDF, imágenes, etc).            |
+| `notificaciones`          | Mensajes que se muestran en el sistema a los usuarios.                         |
+| `categorias`              | Clasificación temática de los recursos subidos por docentes.                   |
+| `cursos`                  | Cursos académicos administrados por docentes con código, fechas y descripción. |
+| `curso_estudiantes`       | Relación entre estudiantes inscritos en cursos.                                |
+| `grados_secciones`        | Define niveles como “Primaria”, “Secundaria” y sus respectivas secciones.      |
+| `grado_estudiantes`       | Asociación entre estudiantes y sus grados/secciones actuales.                  |
+| `elementos_quimicos`      | Representa los elementos de la tabla periódica con propiedades detalladas.     |
+| `preguntas`               | Preguntas para juegos/actividades, asociadas a nivel, grado y elementos.       |
+| `juegos`                  | Tipos de juegos o modos interactivos disponibles en la app.                    |
+| `partidas`                | Registra partidas realizadas por estudiantes (puntaje, tiempo, estado).        |
+| `respuestas`              | Detalle de cada respuesta dada en una partida de juego.                        |
+| `evaluaciones`            | Evaluaciones formales por grado, con fecha y duración.                         |
+| `evaluacion_preguntas`    | Preguntas de una evaluación específica, con tipo y puntuación.                 |
+| `respuestas_evaluacion`   | Respuestas de estudiantes a evaluaciones aplicadas.                            |
+| `progreso_niveles`        | Registro del avance de un estudiante por nivel de juego.                       |
+| `login_logs`              | Historial de accesos de usuarios al sistema con fecha y nombre.                |
+
 
 ---
 
