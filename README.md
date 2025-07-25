@@ -1,4 +1,4 @@
-# 🧪 quimicaAPP
+#quimicaAPP
 
 **quimicaAPP** es una aplicación web educativa diseñada para facilitar el aprendizaje y la gestión de contenidos de química. Combina un backend robusto con Node.js y una interfaz moderna hecha con React + Vite. Está conectada a una base de datos relacional en **MariaDB**.
 
@@ -6,12 +6,13 @@
 
 ## 📌 Resumen del Proyecto
 
-| Sección           | Descripción                                                   |
-|-------------------|---------------------------------------------------------------|
-| 🎯 Objetivo       | Facilitar la consulta, administración y publicación de contenidos de química. |
-| 🧑‍🏫 Público       | Estudiantes, docentes, administradores de contenido.           |
-| 🖥️ Estructura     | Frontend (React + Vite) + Backend (Node.js + Express) + MariaDB |
-| 🛡️ Seguridad      | Autenticación con JWT y cifrado con Bcrypt                    |
+| 🧩 Sección        | 📌 Descripción                                                                                  |
+|------------------|--------------------------------------------------------------------------------------------------|
+| 🎯 Objetivo       | Facilitar el aprendizaje de los elementos químicos de la tabla periódica mediante contenidos educativos, administración de recursos para docentes y juegos interactivos con 3 niveles. |
+| 🧑‍🏫 Público       | Estudiantes, docentes y administradores de contenido educativo.                                  |
+| 🖥️ Estructura     | Frontend (React + Vite) + Backend (Node.js + Express) + Base de datos MariaDB                   |
+| 🛡️ Seguridad      | Autenticación mediante JWT, cifrado de contraseñas con Bcrypt y control de roles de usuario.    |
+
 
 ---
 
