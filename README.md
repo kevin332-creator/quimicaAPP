@@ -88,34 +88,6 @@ quimicaAPP/
 - npm o yarn
 
 ---
-
-### 1. Clonar el repositorio
-
-```bash
-git clone https://github.com/kevin332-creator/quimicaAPP.git
-cd quimicaAPP
-```
-
----
-
-### 2. Backend – Node.js
-
-```bash
-cd backend
-npm install
-```
-
-#### 📂 Configurar `.env`
-
-```env
-PORT=4000
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=123456
-DB_NAME=quimica_db
-JWT_SECRET=miclavejwt
-```
-
 #### ⚙️ Inicializar la base de datos
 
 ⚙️ 1. Instalar MariaDB Server
@@ -151,6 +123,34 @@ EXIT;
 mysql -u quimica_user -p quimica < backend/quimica.sql
 ```
 💡 Este archivo (quimica.sql) contiene todas las tablas, relaciones y datos necesarios del sistema.
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/kevin332-creator/quimicaAPP.git
+cd quimicaAPP
+```
+
+---
+
+### 2. Backend – Node.js
+
+```bash
+cd backend
+npm install
+```
+
+#### 📂 Configurar `.env`
+
+```env
+PORT=4000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=123456
+DB_NAME=quimica_db
+JWT_SECRET=miclavejwt
+```
+
 
 
 
