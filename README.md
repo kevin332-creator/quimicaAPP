@@ -119,6 +119,10 @@ JWT_SECRET=miclavejwt
 #### ⚙️ Inicializar la base de datos
 
 ```bash
+sudo apt update
+sudo apt install mariadb-server -y
+```
+```bash
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
 ```
