@@ -118,17 +118,24 @@ JWT_SECRET=miclavejwt
 
 #### ⚙️ Inicializar la base de datos
 
+⚙️ 1. Instalar MariaDB Server
 ```bash
 sudo apt update
 sudo apt install mariadb-server -y
 ```
+🔄 2. Iniciar y habilitar el servicio de MariaDB
 ```bash
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
 ```
+
+🔐 3. Ingresar al cliente de MariaDB como root
 ```bash
 sudo mysql -u root -p
 ```
+🛠️ 4. Crear la base de datos y usuario
+Una vez dentro del cliente de MariaDB:
+
 ```bash
 CREATE DATABASE quimica CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE USER 'quimica_user'@'localhost' IDENTIFIED BY 'TuContraseñaSegura';
@@ -136,9 +143,16 @@ GRANT ALL PRIVILEGES ON quimica.* TO 'quimica_user'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
+
+⚠️ Reemplaza 'TuContraseñaSegura' por una contraseña real y segura.
+
+📥 5. Importar el archivo de estructura y datos
 ```bash
 mysql -u quimica_user -p quimica < backend/quimica.sql
 ```
+💡 Este archivo (quimica.sql) contiene todas las tablas, relaciones y datos necesarios del sistema.
+
+
 
 #### ▶️ Iniciar servidor backend
 
