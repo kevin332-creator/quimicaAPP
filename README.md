@@ -4,24 +4,24 @@
 
 ---
 
-## 📌 Resumen del Proyecto
+##  Resumen del Proyecto
 
-| 🧩 Sección        | 📌 Descripción                                                                                  |
+|  Sección        | 📌 Descripción                                                                                  |
 |------------------|--------------------------------------------------------------------------------------------------|
-| 🎯 Objetivo       | Facilitar el aprendizaje de los elementos químicos de la tabla periódica mediante contenidos educativos, administración de recursos para docentes y juegos interactivos con 3 niveles. |
-| 🧑‍🏫 Público       | Estudiantes, docentes y administradores de contenido educativo.                                  |
-| 🖥️ Estructura     | Frontend (React + Vite) + Backend (Node.js + Express) + Base de datos MariaDB                   |
-| 🛡️ Seguridad      | Autenticación mediante JWT, cifrado de contraseñas con Bcrypt y control de roles de usuario.    |
+|  Objetivo       | Facilitar el aprendizaje de los elementos químicos de la tabla periódica mediante contenidos educativos, administración de recursos para docentes y juegos interactivos con 3 niveles. |
+|  Público       | Estudiantes, docentes de contenido educativo.                                  |
+|  Estructura     | Frontend (React + Vite) + Backend (Node.js + Express) + Base de datos MariaDB                   |
+|  Seguridad      | Autenticación mediante JWT, cifrado de contraseñas con Bcrypt y control de roles de usuario.    |
 
 
 ---
 
-## 🛠️ Tecnologías Principales
+##  Tecnologías Principales
 
 | Capa       | Tecnologías                                                                          |
 |------------|---------------------------------------------------------------------------------------|
 | Backend    | Node.js, Express, Sequelize, JWT, Bcrypt, Multer, Dotenv                             |
-| Frontend   | React v18+, Vite, TailwindCSS, Axios, React Router, SweetAlert2                      |
+| Frontend   | React v18+, Vite, Bootstrap v5.0, Axios, React Router, SweetAlert2                      |
 | Base Datos | MariaDB (relacional), Sequelize ORM                                                  |
 | Herramientas | Visual Studio Code, Git, Postman, MySQL Workbench (para MariaDB)                 |
 
@@ -29,12 +29,20 @@
 
 ## 🧠 Funcionalidades
 
-### 🔙 Backend (Node.js + Express)
-- ✅ API RESTful con autenticación por JWT
-- ✅ Registro, login y roles de usuario
-- ✅ Subida de archivos (PDF, imágenes)
-- ✅ Gestión de contenidos, categorías y notificaciones
-- ✅ Conexión segura a base de datos MariaDB
+###  Backend (Node.js + Express)
+- ✅ API RESTful con autenticación por JWT.
+- ✅ Registro, login y roles de usuario(Docente, Estudiantes).
+- ✅ Visualizacion de tabla periodica con los detalles de cada elemento.
+- ✅ Gestión de para docentes, agregar estudiates al curso del doecetes.
+- ✅ Nivele de juegos(nivel1, nvel2,nive3).
+-       ✅Nivel1:
+-           ✅Juego del Ahorcado
+-       ✅Nivel2:
+-           ✅Rellenar la Tabla Periódica(test)
+-       ✅Nivel3:
+-           ✅Juego del Cohete Químico
+-       
+- ✅ Conexión segura a base de datos MariaDB.
 
 ### 🎨 Frontend (React + Vite)
 - ✅ Interfaz intuitiva, responsiva y moderna
