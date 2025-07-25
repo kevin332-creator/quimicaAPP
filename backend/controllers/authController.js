@@ -45,10 +45,6 @@ exports.login = async (req, res) => {
 // Registrar nuevo usuario
 exports.registrarUsuario = async (req, res) => {
   const { nombre, apellidos, contraseña, rol } = req.body;
-<<<<<<< HEAD
-  console.log('datos', req.body);
-=======
->>>>>>> b132d68eb3b3df9a25e29d84c92ae074727cb846
   try {
     const hash = await bcrypt.hash(contraseña, 8);
     await db.query(

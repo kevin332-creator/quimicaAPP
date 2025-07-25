@@ -33,7 +33,7 @@ function Register() {
   };
 
   return (
-    <div className="register">
+    <div className="container">
       <h2>Registro de Usuario</h2>
       <form onSubmit={handleRegister}>
         <input type="text" placeholder="Nombre" value={nombre} onChange={e => setNombre(e.target.value)} required />
