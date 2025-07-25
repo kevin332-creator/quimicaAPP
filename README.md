@@ -210,17 +210,6 @@ npm run dev
 
 ---
 
-## 👥 Integrantes
-
-- 👨‍💻 **Quedin Ovalle Alarcón** – Desarrollador Fullstack
-
----
-
-## 📜 Licencia
-
-Este proyecto está bajo la Licencia MIT. Libre para uso académico.
-
----
 
 ## 📬 Contacto
 
@@ -229,4 +218,4 @@ Contáctame en: **quedin.ovalle@unamba.edu.pe**
 
 ---
 
-> 🚀 Proyecto desarrollado como parte del curso de Ingeniería II – UNAMBA 2025.
+> 🚀 Proyecto desarrollado como parte del curso de Ingeniería Software II – UNAMBA 2025.
