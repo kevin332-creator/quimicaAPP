@@ -123,7 +123,7 @@ EXIT;
 mysql -u quimica_user -p quimica < backend/quimica.sql
 ```
 💡 Este archivo (quimica.sql) contiene todas las tablas, relaciones y datos necesarios del sistema.
-
+---
 ### 1. Clonar el repositorio
 
 ```bash
