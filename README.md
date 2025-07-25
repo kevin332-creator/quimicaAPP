@@ -64,6 +64,7 @@ quimicaAPP/
 │   ├── uploads/
 │   ├── .env
 │   └── app.js
+│   └── quimica.sql
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
@@ -118,9 +119,21 @@ JWT_SECRET=miclavejwt
 #### ⚙️ Inicializar la base de datos
 
 ```bash
-npx sequelize db:create
-npx sequelize db:migrate
-npx sequelize db:seed:all
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+```
+```bash
+sudo mysql -u root -p
+```
+```bash
+CREATE DATABASE quimica CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'quimica_user'@'localhost' IDENTIFIED BY 'TuContraseñaSegura';
+GRANT ALL PRIVILEGES ON quimica.* TO 'quimica_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+```bash
+mysql -u quimica_user -p quimica < backend/quimica.sql
 ```
 
 #### ▶️ Iniciar servidor backend
