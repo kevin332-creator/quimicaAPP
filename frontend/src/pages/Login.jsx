@@ -39,7 +39,7 @@ function Login() {
     <div className="container">
         <div className="row justify-content-center">
             <div className="col-md-6 col-lg-5">
-                <div className="card shadow-sm border-0 mt-5" style={{ borderRadius: '16px' }}>
+                <div className="card shadow-sm border-0 mt-5 " style={{ borderRadius: '16px',backgroundColor:'#eabe6f' }}>
                     <div className="card-body p-5">
                         <div className="text-center mb-4">
                             <img 
@@ -118,7 +118,7 @@ function Login() {
 
                 <div className="text-center mt-4">
                     <p className="text-muted small">
-                        © {new Date().getFullYear()} Nombre de la Institución, Todos los derechos reservados
+                        © {new Date().getFullYear()} VICTORIA, Todos los derechos reservados
                     </p>
                 </div>
             </div>
