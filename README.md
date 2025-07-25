@@ -1,110 +1,178 @@
-# quimicaAPP
-
-**Perfecto. A continuación, te presento un **README.md resumido en una sola hoja**, adaptado a tu proyecto `quimicaAPP`, con backend en **Node.js**, frontend en **React + Vite**, y **MariaDB** como base de datos.
-
----
-
-### 📄 `README.md` (versión en una sola hoja)
-
-```markdown
 # 🧪 quimicaAPP
 
-**quimicaAPP** es una plataforma web educativa para la gestión de contenidos de química. Está dividida en backend (Node.js) y frontend (React + Vite), con base de datos en MariaDB.
+**quimicaAPP** es una aplicación web educativa diseñada para facilitar el aprendizaje y la gestión de contenidos de química. Combina un backend robusto con Node.js y una interfaz moderna hecha con React + Vite. Está conectada a una base de datos relacional en **MariaDB**.
 
 ---
 
-## 🔧 Tecnologías Usadas
+## 📌 Resumen del Proyecto
 
-- **Backend**: Node.js v22.17.0, Express, JWT, Bcrypt, Sequelize ORM
-- **Frontend**: React v18+, Vite, TailwindCSS, Axios, React Router DOM
-- **Base de Datos**: MariaDB
-- **Otros**: Dotenv, Multer, SweetAlert2
+| Sección           | Descripción                                                   |
+|-------------------|---------------------------------------------------------------|
+| 🎯 Objetivo       | Facilitar la consulta, administración y publicación de contenidos de química. |
+| 🧑‍🏫 Público       | Estudiantes, docentes, administradores de contenido.           |
+| 🖥️ Estructura     | Frontend (React + Vite) + Backend (Node.js + Express) + MariaDB |
+| 🛡️ Seguridad      | Autenticación con JWT y cifrado con Bcrypt                    |
+
+---
+
+## 🛠️ Tecnologías Principales
+
+| Capa       | Tecnologías                                                                          |
+|------------|---------------------------------------------------------------------------------------|
+| Backend    | Node.js, Express, Sequelize, JWT, Bcrypt, Multer, Dotenv                             |
+| Frontend   | React v18+, Vite, TailwindCSS, Axios, React Router, SweetAlert2                      |
+| Base Datos | MariaDB (relacional), Sequelize ORM                                                  |
+| Herramientas | Visual Studio Code, Git, Postman, MySQL Workbench (para MariaDB)                 |
+
+---
+
+## 🧠 Funcionalidades
+
+### 🔙 Backend (Node.js + Express)
+- ✅ API RESTful con autenticación por JWT
+- ✅ Registro, login y roles de usuario
+- ✅ Subida de archivos (PDF, imágenes)
+- ✅ Gestión de contenidos, categorías y notificaciones
+- ✅ Conexión segura a base de datos MariaDB
+
+### 🎨 Frontend (React + Vite)
+- ✅ Interfaz intuitiva, responsiva y moderna
+- ✅ Páginas de login, dashboard, recursos por tema
+- ✅ Panel para administradores
+- ✅ Navegación protegida según el rol del usuario
+- ✅ Alertas interactivas y retroalimentación visual
 
 ---
 
 ## 📁 Estructura del Proyecto
 
 ```
-
 quimicaAPP/
-├── backend/      # Node.js API con Express y Sequelize
-├── frontend/     # React + Vite app con TailwindCSS
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   ├── uploads/
+│   ├── .env
+│   └── app.js
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── App.jsx
+│   ├── public/
+│   ├── vite.config.js
+│   └── index.html
 └── README.md
-
-````
-
----
-
-## 🧠 Funcionalidades
-
-### Backend
-- API RESTful con autenticación JWT
-- Registro e inicio de sesión seguro
-- Subida de archivos (PDF, imágenes)
-- Gestión de usuarios, contenidos y notificaciones
-- Conexión a MariaDB vía Sequelize
-
-### Frontend
-- Interfaz moderna e intuitiva
-- Visualización de recursos por tema
-- Panel administrativo
-- Alertas y notificaciones interactivas
+```
 
 ---
 
-## ⚙️ Instalación Rápida
+## ⚙️ Instalación y Ejecución
 
-### Backend
+### 🔧 Requisitos previos
+- Node.js >= 18.x
+- MariaDB (instalado y corriendo)
+- Git
+- npm o yarn
+
+---
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/usuario/quimicaAPP.git
+cd quimicaAPP
+```
+
+---
+
+### 2. Backend – Node.js
+
 ```bash
 cd backend
 npm install
-# Configurar archivo .env con:
-# DB_HOST=localhost
-# DB_USER=root
-# DB_PASSWORD=*****
-# DB_NAME=quimica_db
-# JWT_SECRET=clave_secreta
-node app.js
-````
+```
 
-### Frontend
+#### 📂 Configurar `.env`
+
+```env
+PORT=4000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=123456
+DB_NAME=quimica_db
+JWT_SECRET=miclavejwt
+```
+
+#### ⚙️ Inicializar la base de datos
 
 ```bash
-cd frontend
+npx sequelize db:create
+npx sequelize db:migrate
+npx sequelize db:seed:all
+```
+
+#### ▶️ Iniciar servidor backend
+
+```bash
+node app.js
+```
+
+---
+
+### 3. Frontend – React + Vite
+
+```bash
+cd ../frontend
 npm install
 npm run dev
 ```
 
 ---
 
-## 🗄️ Base de Datos – MariaDB
+## 🗃️ Base de Datos – MariaDB
 
-* Motor: MariaDB
-* ORM: Sequelize
-* Tablas principales: `usuarios`, `recursos`, `categorias`, `notificaciones`
-* Script inicial disponible en `/backend/database/init.sql` (si aplica)
+- Motor: MariaDB
+- Gestión mediante Sequelize ORM
+- Esquema principal:
+
+| Tabla         | Descripción                        |
+|---------------|------------------------------------|
+| `usuarios`    | Almacena datos de usuarios         |
+| `recursos`    | Materiales de química (PDF, img)   |
+| `notificaciones` | Mensajes visibles en el sistema |
+| `categorias`  | Clasificación de los recursos      |
+
+---
+
+## 📹 Tutoriales y Recursos Recomendados
+
+- 🎥 [Introducción a Express.js](https://www.youtube.com/watch?v=L72fhGm1tfE)
+- 🎥 [React con Vite y Tailwind](https://www.youtube.com/watch?v=ZVnjOPwW4ZA)
+- 🎥 [MariaDB con Sequelize ORM](https://www.youtube.com/watch?v=2mjDgPEY-gU)
 
 ---
 
 ## 👥 Integrantes
 
-* 👨‍💻 Quedin Ovalle Alarcón – Desarrollador Fullstack
-  *(Agrega más si corresponde)*
+- 👨‍💻 **Quedin Ovalle Alarcón** – Desarrollador Fullstack
 
 ---
 
-## 📃 Licencia
+## 📜 Licencia
 
-MIT – Libre para uso académico y educativo.
-
----
-
-> Proyecto desarrollado como parte del curso de Ingeniería II – UNAMBA.
-
-```
+Este proyecto está bajo la Licencia MIT. Libre para uso académico.
 
 ---
 
-¿Deseas que este archivo lo genere automáticamente como archivo `.md` para que lo pegues directo en tu proyecto? ¿O quieres que incluya comandos como `npx sequelize init` y migraciones también?
-```
-**
+## 📬 Contacto
+
+¿Tienes dudas o sugerencias?  
+Contáctame en: **quedin.ovalle@unamba.edu.pe**
+
+---
+
+> 🚀 Proyecto desarrollado como parte del curso de Ingeniería II – UNAMBA 2025.
