@@ -6,12 +6,15 @@
 
 ##  Resumen del Proyecto
 
-|  Sección        | 📌 Descripción                                                                                  |
-|------------------|--------------------------------------------------------------------------------------------------|
-|  Objetivo       | Facilitar el aprendizaje de los elementos químicos de la tabla periódica mediante contenidos educativos, administración de recursos para docentes y juegos interactivos con 3 niveles. |
-|  Público       | Estudiantes, docentes de contenido educativo.                                  |
-|  Estructura     | Frontend (React + Vite) + Backend (Node.js + Express) + Base de datos MariaDB                   |
-|  Seguridad      | Autenticación mediante JWT, cifrado de contraseñas con Bcrypt y control de roles de usuario.    |
+| 🧩 Sección         | 📌 Descripción                                                                                      |
+|-------------------|------------------------------------------------------------------------------------------------------|
+| 🎯 Objetivo        | Facilitar el aprendizaje de los elementos químicos de la tabla periódica mediante contenidos educativos, administración de recursos para docentes y juegos interactivos con 3 niveles. |
+| 🧑‍🏫 Público        | Estudiantes, docentes y administradores de contenido educativo.                                      |
+| 🖥️ Estructura      | Frontend (React + Vite) + Backend (Node.js + Express) + Base de datos MariaDB                       |
+| 🛡️ Seguridad       | Autenticación mediante JWT, cifrado de contraseñas con Bcrypt y control de roles de usuario.        |
+| 🖧 Entorno de despliegue | El sistema funciona en una red interna sobre un servidor con sistema operativo Linux.                  |
+| 🏗️ Arquitectura    | Arquitectura cliente-servidor distribuida: el cliente (React) se comunica vía HTTP con el servidor Node.js y este accede a MariaDB mediante Sequelize ORM. |
+
 
 
 ---
