@@ -35,13 +35,9 @@
 - ✅ Visualizacion de tabla periodica con los detalles de cada elemento.
 - ✅ Gestión de para docentes, agregar estudiates al curso del doecetes.
 - ✅ Nivele de juegos(nivel1, nvel2,nive3).
--       ✅Nivel1:
--           ✅Juego del Ahorcado
--       ✅Nivel2:
--           ✅Rellenar la Tabla Periódica(test)
--       ✅Nivel3:
--           ✅Juego del Cohete Químico
--       
+- ✅Nivel1:Juego del Ahorcado
+- ✅Nivel2: Test de perguntas de la Tabla Periódica(test)
+- ✅Nivel3: Juego del Cohete Químico   
 - ✅ Conexión segura a base de datos MariaDB.
 
 ### 🎨 Frontend (React + Vite)
