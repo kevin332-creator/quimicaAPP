@@ -1,0 +1,107 @@
+/* Colores basados en posición */
+.celda.alkali-metal { background-color: #ff9d9d; } /* Columna 1 */
+.celda.alkaline-earth { background-color: #ffd699; } /* Columna 2 */
+.celda.transition-metal { background-color: #ffcccb; } /* Columnas 3-12 */
+.celda.post-transition { background-color: #cccccc; } /* Aluminio, etc. */
+.celda.metalloid { background-color: #ccffcc; } /* Boro, Silicio, etc. */
+.celda.non-metal { background-color: #a0ffa0; } /* Carbono, Oxígeno, etc. */
+.celda.halogen { background-color: #ffff99; } /* Columna 17 */
+.celda.noble-gas { background-color: #c0ffff; } /* Columna 18 */
+.celda.lanthanide { background-color: #ffbfff; } /* Lantánidos */
+.celda.actinide { background-color: #ff99cc; } /* Actínidos */
+
+/* Estado de juego (sobrescribe colores base) */
+.celda.acierto { background-color: #027c06 !important; }
+.celda.error { background-color: #db0016 !important; }
+
+/* Estilos base (los que ya tenías) */
+.celda {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  background-color: #f0f0f0; /* Color por defecto */
+  transition: background-color 0.3s;
+}
+
+/* Mantén los colores de acierto/error que ya tenías */
+.celda.acierto {
+  background-color: #027c06 !important; /* verde */
+}
+
+.celda.error {
+  background-color: #db0016 !important; /* rojo */
+}
+
+/* El resto de tu CSS permanece igual */
+.contenedor-juego {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.panel-superior {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.zona-juego {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.tabla-periodica {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ccc;
+}
+
+.fila {
+  display: flex;
+}
+
+
+.banco-elementos {
+  min-width: 70px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.elementos-lista {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.elemento {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background-color: #002983;
+  border: 1px solid #2196f3;
+  border-radius: 4px;
+  cursor: grab;
+}
+
+@media (max-width: 768px) {
+  .zona-juego {
+    flex-direction: column;
+  }
+
+  .panel-superior {
+    flex-direction: column;
+    align-items: center;
+  }
+}

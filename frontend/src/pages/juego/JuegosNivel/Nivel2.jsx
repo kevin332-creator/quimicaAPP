@@ -1,14 +1,30 @@
-// src/pages/Nivel2.jsx
+// src/pages/juego/JuegosNivel/Nivel2.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
+import RellenarTabla from './RellenarTabla/RellenarTabla';
 
-function Nivel2() {
+const Nivel2 = () => {
   return (
-    <div className="container mt-5">
-      <h2 className="text-center mb-4">⚗️ Nivel 2: Avanzado</h2>
-      <p className="text-center">Aquí se mostrarán preguntas más complejas relacionadas con configuraciones electrónicas, tipos de enlace, etc.</p>
-      {/* Aquí irá la lógica del juego */}
+    <div className="nivel-container" style={{ position: 'relative', minHeight: '100vh' }}>
+      {/* Link para salir al menú de juegos */}
+      <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
+        <Link
+          to="/juegos"
+          className="nav-link-hover text-white text-decoration-none d-flex align-items-center gap-2"
+        >
+          <img
+            src="/juego.jpg"
+            alt="avatar"
+            className="rounded-circle"
+            style={{ width: '32px', height: '32px', objectFit: 'cover' }}
+          />
+          <span>Salir</span>
+        </Link>
+      </div>
+
+      <RellenarTabla />
     </div>
   );
-}
+};
 
 export default Nivel2;
