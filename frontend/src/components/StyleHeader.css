@@ -17,3 +17,27 @@
   padding-left: 4px;
   padding-right: 4px;
 }
+
+
+/* Estilo por defecto: ocultar menú en móvil */
+.menu-nav {
+  display: none;
+}
+
+/* Mostrar en pantallas md+ */
+@media (min-width: 768px) {
+  .menu-nav {
+    display: flex !important;
+  }
+}
+
+/* Si se activa el menú desde botón hamburguesa */
+.menu-nav.mostrar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #0d6efd;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}

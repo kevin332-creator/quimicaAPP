@@ -1,21 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import AhorcadoQuimico from './AhorcadoQuimico/AhorcadoQuimico';
 
-function Nivel1() {
+const Nivel1 = () => {
   return (
-    <div
-      className=" mt-0 relative bg-cover bg-center"
-      style={{
-        backgroundImage: "url('/nivel_1.jpeg')", // reemplaza con tu ruta
-        minHeight: '100vh',
-      }}
-    >
-      <div className="relative z-10 bg-white/80 p-6 rounded-xl shadow-md">
-        <h2 className="text-center mb-4 text-xl font-bold text-blue-800">🔰 Nivel 1: Básico</h2>
-        <p className="text-center text-gray-700">Aquí se mostrarán preguntas básicas de química (tipo test).</p>
-        {/* Aquí irá la lógica del juego */}
+    <div className="nivel-container" style={{ position: 'relative', minHeight: '100vh' }}>
+      {/* Link en la esquina superior derecha */}
+      <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
+        <Link
+          to="/juegos"
+          className="nav-link-hover text-white text-decoration-none d-flex align-items-center gap-2"
+        >
+          <img
+            src="/juego.jpg"
+            alt="avatar"
+            className="rounded-circle"
+            style={{ width: '32px', height: '32px', objectFit: 'cover' }}
+          />
+          <span>Salir</span>
+        </Link>
       </div>
+
+      <AhorcadoQuimico />
     </div>
   );
-}
+};
 
 export default Nivel1;
+

@@ -34,14 +34,14 @@ function Register() {
 
   return (
     <div className="container">
-      <h2>Registro de Usuario</h2>
+      <h2>Registro de docente</h2>
       <form onSubmit={handleRegister}>
         <input type="text" placeholder="Nombre" value={nombre} onChange={e => setNombre(e.target.value)} required />
         <input type="text" placeholder="apellidos" value={apellidos} onChange={e => setApellidos(e.target.value)} required />
         <input type="password" placeholder="Contraseña" value={contraseña} onChange={e => setContraseña(e.target.value)} required />
 
         <select value={rol} onChange={e => setRol(e.target.value)} required>
-          <option value="estudiante">Estudiante</option>
+          <option value="docente">Docente</option>
         </select>
 
         <button type="submit">Registrar</button>
