@@ -182,14 +182,6 @@ npm run dev
 |   Tabla                   | 📌 Descripción                                                                 |
 |---------------------------|---------------------------------------------------------------------------------|
 | `usuarios`                | Almacena datos de usuarios del sistema: estudiantes, docentes y administradores. |
-| `recursos`                | Archivos relacionados a materiales educativos (PDF, imágenes, etc).            |
-| `notificaciones`          | Mensajes que se muestran en el sistema a los usuarios.                         |
-| `categorias`              | Clasificación temática de los recursos subidos por docentes.                   |
-| `cursos`                  | Cursos académicos administrados por docentes con código, fechas y descripción. |
-| `curso_estudiantes`       | Relación entre estudiantes inscritos en cursos.                                |
-| `grados_secciones`        | Define niveles como “Primaria”, “Secundaria” y sus respectivas secciones.      |
-| `grado_estudiantes`       | Asociación entre estudiantes y sus grados/secciones actuales.                  |
-| `elementos_quimicos`      | Representa los elementos de la tabla periódica con propiedades detalladas.     |
 | `preguntas`               | Preguntas para juegos/actividades, asociadas a nivel, grado y elementos.       |
 | `juegos`                  | Tipos de juegos o modos interactivos disponibles en la app.                    |
 | `partidas`                | Registra partidas realizadas por estudiantes (puntaje, tiempo, estado).        |
