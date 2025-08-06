@@ -62,7 +62,6 @@ function Perfil() {
           </p>
   
           <p><strong>{usuario.rol}</strong> </p>
-          <p><strong>Fecha de registro:</strong> {new Date(usuario.fecha_creacion).toLocaleDateString()}</p>
         </div>
       </div>
     </div>

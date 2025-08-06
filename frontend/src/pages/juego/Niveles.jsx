@@ -89,7 +89,7 @@ function Niveles() {
                   objectPosition: 'center' 
                 }} />
               </div>
-              <p>Juego ahorcado</p>
+              <p>Juego de palabras</p>
               <Link to="/juegos/nivel1" className="btn btn-play" style={{
                 backgroundColor: '#4e73df',
                 color: 'white',
