@@ -125,7 +125,7 @@ function Register() {
 const styles = {
   registerBackground: {
     minHeight: '100vh',
-    backgroundImage: 'url("fondo2.jpg")', // Ruta de la imagen de fondo
+    backgroundImage: 'url("/fondo_quimica.jpeg")', // Ruta de la imagen de fondo
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
