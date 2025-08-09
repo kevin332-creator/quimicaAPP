@@ -37,8 +37,7 @@ class HeaderList extends HTMLElement {
   static get styles() {
     return /* css */`
     .containercategorias {
-      position: absolute;
-      margin-top: 10px;                    /* Lo ubica en la parte superior del contenedor padre */
+      margin-top: 0px;                    /* Lo ubica en la parte superior del contenedor padre */
       margin-left: 580px;                 /* Punto de inicio al centro horizontal */
       transform: translateX(-50%);
       display: flex;

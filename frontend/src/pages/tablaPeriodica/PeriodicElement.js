@@ -15,7 +15,7 @@ class PeriodicElement extends HTMLElement {
         justify-content: center;
         align-items: center;
         font-size: 1rem;
-        background-color: var(--element-color, #99ddcc);
+        background-color: var(--element-color, white);
         box-shadow: 0 0 5px 5px rgba(0 0 0 / 25%) inset;
         width: var(--element-size, 80px);
         height: var(--element-size, 80px);

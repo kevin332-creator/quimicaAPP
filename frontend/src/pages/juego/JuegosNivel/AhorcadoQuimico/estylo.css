@@ -1,19 +1,73 @@
 /* Estilos para el ahorcado */
 .ahorcado-container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   text-align: center;
   font-family: Arial, sans-serif;
   margin-bottom: 20px;
 }
+.header-name-juegos{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 100%;
+}
+.numero-pregunta{
+padding: 0%;
+  margin-top: -40px;
+  margin-left: -120px;
+}
+.color-fonfo-salir{
+  background-color: #f72136;
+}
+.color-fonfo-salir:hover{
+  background-color: #f50820;
+}
 
+.btn-sali-gamer{
+  margin-top: -40px;
+  background-color: #007bff;
+  padding: 0px;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: #333;
+  border-radius: 8px;
+}
+.contador-pregunta{
+  font-family:'Times New Roman', Times, serif;
+  font-weight: bolder;
+  padding: 2px;
+  border-radius: 8px;
+  background-color: white;
+  color: blue;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: #333;
+  font-size: 20px;
+}
 .imagen-ahorcado img {
   height: 200px;
   margin: 20px 0;
 }
-
+.name-intentos{
+  font-family:'Times New Roman', Times, serif;
+  font-weight: bolder;
+  padding: 2px;
+  border-radius: 8px;
+  background-color: white;
+  color: blue;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: #333;
+  
+}
+.intentos{
+  color: #dc3545;
+}
 .palabra-oculta {
   font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
   letter-spacing: 0.5rem;
   margin: 20px 0;
 }
@@ -27,14 +81,23 @@
   margin-bottom: 20px;
 }
 
+.simbolo{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  font-style: normal;
+  margin-top: -10px;
+}
 .letra-btn {
   padding: 10px;
   font-size: 1.2rem;
   cursor: pointer;
   border: 2px solid #333;
   border-radius: 5px;
-  background: #f0f0f0;
+  background: #000877;
   transition: all 0.2s;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
 }
 
 .letra-btn.acertada {
@@ -58,6 +121,11 @@
   margin: 10px 0;
 }
 
+.container-preguntas{
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
 .resultado {
   margin: 20px 0;
   padding: 15px;
@@ -68,6 +136,13 @@
 .pista {
   font-style: italic;
   color: #ffffff;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 2px;
+  border-radius: 8px;
+  padding-left: 6px;
+  padding-right: 6px;
+  background-color: #003975;
 }
 
 .mensaje-correcto {
@@ -142,7 +217,7 @@
 /* Estilos para la barra de progreso */
 /* Estilos para la barra de progreso */
 .contador-intentos {
-  margin: 20px auto; /* Cambiado de 20px 0 a 20px auto para centrar horizontalmente */
+  margin: 0px; /* Cambiado de 20px 0 a 20px auto para centrar horizontalmente */
   width: 100%;
   max-width: 300px;
   display: flex; /* Añadido */
@@ -158,8 +233,8 @@
   background-color: #e0e0e0;
   border-radius: 10px;
   overflow: hidden;
-  margin-top: 8px;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  margin-top: 0px;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.678);
 }
 
 .progress-bar {

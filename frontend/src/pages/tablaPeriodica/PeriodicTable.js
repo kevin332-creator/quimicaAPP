@@ -17,7 +17,7 @@ class PeriodicTable extends HTMLElement {
         place-items: center;
       }
       .containertablas{
-        background-color: #787772;
+        background-color: white;
       }
 
       .elements {

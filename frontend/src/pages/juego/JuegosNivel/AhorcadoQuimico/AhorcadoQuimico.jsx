@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useAhorcado } from './useAhorcado';
 import './estylo.css';
 
@@ -46,36 +47,63 @@ const AhorcadoQuimico = () => {
 
   return (
     <div className="ahorcado-container">
-
-      {/* Progreso del juego */}
-      <div className="progreso-juego">
-        Pregunta {indicePregunta + 1} de {totalPreguntas} 
-        
-        <div className="contador-intentos">
-        <p>Intentos restantes: {6 - intentos}/6</p>
-        <div className="progress-bar-container">
-          <div 
-            className="progress-bar"
-            style={{ 
-              width: `${(intentos / 6) * 100}%`,
-              backgroundColor: intentos >= 5 ? '#e74c3c' : 
-                              intentos >= 3 ? '#f39c12' : '#2ecc71'
-            }}
-          ></div>
+      <div className='header-name-juegos'>
+        {/* Progreso del juego */}
+        <div className="progreso-juego">
+          <div className="contador-intentos">
+            <p className='name-intentos'>Vidas: <span className='intentos'>[ {6 - intentos} ] </span> de 6</p>
+            
+            <div className="corazones-container">
+              {[...Array(6)].map((_, index) => (
+                <img 
+                  key={index}
+                  src="https://cdn-icons-png.flaticon.com/512/833/833472.png" // URL de corazón
+                  alt="Vida"
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    opacity: index < 6 - intentos ? 1 : 0.3,
+                    transition: 'opacity 0.3s ease'
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className='numero-pregunta'>
+            <p className='contador-pregunta'>Pregunta {indicePregunta + 1} de {totalPreguntas} </p>
+        </div>
+        <div>
+          <div className='btn-sali-gamer'>
+            <Link
+              to="/juegos"
+              className="color-fonfo-salir nav-link-hover text-white text-decoration-none d-flex align-items-center gap-2"
+            >
+              <img
+                src="/juego.jpg"
+                alt="avatar"
+                className="rounded-circle"
+                style={{ width: '32px', height: '32px', objectFit: 'cover' }}
+              />
+              <span>Salir</span>
+            </Link>
+          </div>
         </div>
       </div>
-      </div>
+      
+      <div className='container-preguntas'>
 
       <p className="pista"> <strong>{pistaActual} </strong> </p>
 
+    
+      </div>
       <div className="imagen-ahorcado">
 
-        <h1 >
+        <h1 className='simbolo'>
         [ {simboloActual} ]<span></span>
         </h1>
-        
-      </div>
 
+      </div>
       <div className="palabra-oculta" aria-live="polite">
         {palabraOculta}
       </div>
