@@ -1,6 +1,8 @@
 import "./PeriodicElement.js";
 import HTMLData from "./HTMLData.js";
 
+
+
 class PeriodicTable extends HTMLElement {
   constructor() {
     super();
@@ -8,16 +10,19 @@ class PeriodicTable extends HTMLElement {
   }
 
   static get styles() {
-    return /* css */`
+    return `
       :host {
-        --element-size: 55px;
+        --element-size: 65px;
         --real-size: calc(var(--element-size) + 10px);
-
         display: grid;
         place-items: center;
       }
       .containertablas{
-        background-color: #787772;
+        background-color: #ffffffff;
+        .containertablas {
+
+        
+
       }
 
       .elements {
@@ -65,10 +70,10 @@ class PeriodicTable extends HTMLElement {
   connectedCallback() {
     this.render();
   }
-  
+
   renderElements() {
     const offset = 1;
-    const html = HTMLData.elements.map((el, index) => /* html */`
+    const html = HTMLData.elements.map((el, index) => `
       <periodic-element 
         atomicNumber="${el.atomicNumber ?? index + offset}" 
         symbol="${el.symbol}" 
@@ -91,13 +96,13 @@ class PeriodicTable extends HTMLElement {
     `);
     return html.join("");
   }
-  
-  
-  
+
+
+
 
   renderSemantics() {
     const offset = HTMLData.elements.length + 1;
-    const html = HTMLData.semantics.map((el, index) => /* html */`
+    const html = HTMLData.semantics.map((el, index) => `
     <periodic-element 
       atomicNumber="${el.atomicNumber ?? index + offset}" 
       symbol="${el.symbol}" 
@@ -120,11 +125,11 @@ class PeriodicTable extends HTMLElement {
     `);
     return html.join("");
   }
-  
+
 
   renderDeprecated() {
     const offset = HTMLData.elements.length + HTMLData.semantics.length + 1;
-    const html = HTMLData.deprecated.map((el, index) => /* html */`
+    const html = HTMLData.deprecated.map((el, index) => `
     <periodic-element 
       atomicNumber="${el.atomicNumber ?? index + offset}" 
       symbol="${el.symbol}" 
@@ -147,10 +152,10 @@ class PeriodicTable extends HTMLElement {
     `);
     return html.join("");
   }
-  
+
 
   render() {
-    this.shadowRoot.innerHTML = /* html */`
+    this.shadowRoot.innerHTML = `
     <style>${PeriodicTable.styles}</style>
     <div class="containertablas text-center " >
       <div class="elements">
@@ -166,3 +171,4 @@ class PeriodicTable extends HTMLElement {
 }
 
 customElements.define("periodic-table", PeriodicTable);
+

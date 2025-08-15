@@ -288,9 +288,9 @@ const [nuevoAlumno, setNuevoAlumno] = useState({
 
     {/* Sección para estudiantes */}
     {usuario.rol === 'estudiante' && (
-      <div className="mb-4" style={{ backgroundColor: '#787772', padding: '16px' }}>
-        <div className='mt-4'>
-          <div className="d-flex justify-content-between align-items-center mb-3"></div>
+      <div className="mb-0" style={{ backgroundColor: '#fff', padding: '0px' }}>
+        <div className='mt-0'>
+          <div className="d-flex justify-content-between align-items-center mb-"></div>
           <div className='bg-gray-100'>
             <header-list></header-list>
             <periodic-table></periodic-table>

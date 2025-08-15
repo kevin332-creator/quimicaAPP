@@ -1,120 +1,121 @@
+import HTMLData from "./HTMLData.js";
+
 class PeriodicElement extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
   }
 
-  static get styles() {
-    return /* css */`
-      .element {
-        border: 1px solid #111;
-        border-radius: 4px;
-        padding: 4px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 1rem;
-        background-color: var(--element-color, #99ddcc);
-        box-shadow: 0 0 5px 5px rgba(0 0 0 / 25%) inset;
-        width: var(--element-size, 80px);
-        height: var(--element-size, 80px);
-        overflow: hidden;
-        text-decoration: none;
-        color: #000;
-        position: relative;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-      }
+ static get styles() {
+  return /* css */`
+    .element {
+      border: 1px solid #111;
+      border-radius: 4px;
+      padding: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+       background-color: var(--element-color, #99ddcc);
+      box-shadow: 0 0 5px 5px rgba(0 0 0 / 25%) inset;
+      width: clamp(50px, 6vw, 80px);
+      height: clamp(50px, 6vw, 80px);
+      overflow: hidden;
+      text-decoration: none;
+      color: #000;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
 
-      .element span {
-        font-family: var(--code-font, monospace);
-        font-weight: 500;
-        font-size: 0.8rem;
-        color: #333;
-      }
+    .element span {
+      font-family: var(--code-font, monospace);
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: #333;
+    }
 
-      .element .num {
-        background: rgb(0 0 0 / 25%);
-        padding: 0 1.3rem 1rem;
-        clip-path: polygon(0 0, 50% 60%, 100% 0);
-        position: absolute;
-        top: 0;
-      }
+    .element .num {
+      background: rgb(0 0 0 / 25%);
+      padding: 0 1.3rem 1rem;
+      clip-path: polygon(0 0, 50% 60%, 100% 0);
+      position: absolute;
+      top: 0;
+    }
 
-      .element .num span {
-        position: relative;
-        top: -2px;
-      }
+    .element .num span {
+      position: relative;
+      top: -2px;
+    }
 
-      .element p {
-        margin: 0;
-        margin-top: 0.5rem;
-        font-size: 1.75rem;
-        font-weight: 800;
-      }
+    .element p {
+      margin: 0;
+      margin-top: 0.5rem;
+      font-size: 1.75rem;
+      font-weight: 800;
+    }
 
-      .element .name {
-        display: inline-block;
-        transform: translateY(-4px);
-      }
+    .element .name {
+      display: inline-block;
+      transform: translateY(-4px);
+    }
 
-      .element:hover {
-        transform: scale(1.75);
-        transition: transform 0.2s, width 0.2s;
-        z-index: 5;
-        box-shadow: 0 0 6px 4px #0008 inset;
-        /* position: relative; */
-      }
+    .element:hover {
+      transform: scale(1.5); /* un poco más pequeño para que no se salga */
+      transition: transform 0.2s, width 0.2s;
+      z-index: 5;
+      box-shadow: 0 0 6px 4px #0008 inset;
+    }
 
-      .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0,0,0,0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-      }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+       background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
 
-      .modal-content {
-        background: #fff;
-        padding: 1rem;
-        border-radius: 8px;
-        max-width: 400px;
-        max-height: 80vh;
-        overflow-y: auto;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        position: relative;
-        font-size: 0.9rem;
-      }
+    .modal-content {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 400px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      position: relative;
+      font-size: 0.9rem;
+    }
 
-      .modal-content h2 {
-        margin-top: 0;
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
+    .modal-content h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
 
-      .modal-content button.close-btn {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        background: #e74c3c;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 0.25rem 0.5rem;
-        cursor: pointer;
-      }
+    .modal-content button.close-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+    }
 
-      .modal-content ul {
-        padding-left: 1.2rem;
-      }
-    `;
-  }
+    .modal-content ul {
+      padding-left: 1.2rem;
+    }
+  `;
+}
 
   connectedCallback() {
     this.num = this.getAttribute("num") ?? "0";

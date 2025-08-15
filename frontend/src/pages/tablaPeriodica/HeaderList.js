@@ -33,25 +33,25 @@ class HeaderList extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
   }
-
-  static get styles() {
-    return /* css */`
+static get styles() {
+  return `
     .containercategorias {
       position: absolute;
-      margin-top: 10px;                    /* Lo ubica en la parte superior del contenedor padre */
-      margin-left: 580px;                 /* Punto de inicio al centro horizontal */
+      margin-top: 1vh;                    /* Escala verticalmente */
+      left: 40%;                           /* Centrado horizontal */
       transform: translateX(-50%);
       display: flex;
       gap: 1rem;
       font-weight: 600;
-      font-size: 10px;
+      font-size: clamp(0.6rem, 1.5vw, 1rem); /* Tamaño adaptable */
       padding: 1rem;
       border-radius: 8px;
       z-index: 10;          
+      flex-wrap: wrap;                     /* Permite que baje en pantallas pequeñas */
+      justify-content: center;
     }
-    
 
-      .category {
+    .category {
         align-items: center;
         width: 190px;
         display: flex;
@@ -65,62 +65,58 @@ class HeaderList extends HTMLElement {
         padding-right: 2px;
       }
 
-      .category-name {
-        margin-bottom: 0.4rem;
-        font-size: 10px;
-        text-transform: uppercase;
-        color: #fff;
-        width: 100%;
-        align-items: center;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    .category-name {
+      margin-bottom: 0.4rem;
+      font-size: clamp(0.6rem, 1vw, 0.8rem); /* Escala texto */
+      text-transform: uppercase;
+      color: #fff;
+      width: 100%;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-      .subcategorias {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(50px, 1fr));
-        gap: 0.4rem;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
+    .subcategorias {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(50px, 1fr));
+      gap: 0.4rem;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
 
-      li {
-        border-radius: 4px;
-        padding: 1px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 1rem;
-        background-color: var(--element-color, #99ddcc);
-        box-shadow: 0 0 5px 5px rgba(0 0 0 / 25%) inset;
-        overflow: hidden;
-        text-decoration: none;
-        color: #000;
-        position: relative;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        padding-left: 4px;
-        padding-right: 4px;
-      }
+    li {
+      border-radius: 4px;
+      padding: 1px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: clamp(0.7rem, 1vw, 1rem);
+      background-color: var(--element-color, #99ddcc);
+      box-shadow: 0 0 5px 5px rgba(0 0 0 / 25%) inset;
+      overflow: hidden;
+      text-decoration: none;
+      color: #000;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
 
-      li:hover {
-        cursor: pointer;
-        transform: scale(1.05);
-        border-color: #000;
-      }
+    li:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      border-color: #000;
+    }
 
-      li.active {
-        border: 2px solid black;
-        box-shadow: 0 0 5px black;
-      }
-    `;
-  }
+    li.active {
+      border: 2px solid black;
+      box-shadow: 0 0 5px black;
+    }
+  `;
+}
+
 
   connectedCallback() {
     this.render();
@@ -128,7 +124,7 @@ class HeaderList extends HTMLElement {
 
   renderElements() {
     return HEADERSCATEGORIAS.map((categoria, catIndex) => {
-      return /* html */`
+      return `
         <div class="category">
           <div class="category-name" style="background:${categoria.color};">${categoria.category}</div>
           <ul class="subcategorias">
@@ -141,7 +137,7 @@ class HeaderList extends HTMLElement {
   }
 
   render() {
-    this.shadowRoot.innerHTML = /* html */`
+    this.shadowRoot.innerHTML =`
       <style>${HeaderList.styles}</style>
       <div class="containercategorias">
         ${this.renderElements()}
@@ -151,3 +147,4 @@ class HeaderList extends HTMLElement {
 }
 
 customElements.define("header-list", HeaderList);
+
