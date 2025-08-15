@@ -81,17 +81,7 @@ function Login() {
         </div>
       </div>
             </div>
-          <div className="text-center mb-4">
-            <img 
-              src="user2.png"  // Ruta de la imagen
-              alt="Logo" 
-              className="mb-3" 
-              style={{ width: '72px' }}  // Ajuste el tamaño del logo
-            />
-            
-
-            <p className="text-muted">Usa tu cuenta de la institución</p>
-          </div>
+          
 
           <form onSubmit={handleLogin} className="login-form">
             <div className="mb-3">
