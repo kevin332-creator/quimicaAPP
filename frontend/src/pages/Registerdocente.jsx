@@ -9,7 +9,15 @@ function Register() {
   const [rol, setRol] = useState('estudiante');
   const [error, setError] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const [validNombre, setValidNombre] = useState(false);
+  const [validApellidos, setValidApellidos] = useState(false);
+  const [validContraseña, setValidContraseña] = useState(false);
   const navigate = useNavigate();
+
+  // Expresiones regulares
+  const nombreRegex = /^[a-zA-Z\s]+$/; // Solo letras y espacios
+  const apellidosRegex = /^[a-zA-Z\s]+$/; // Solo letras y espacios
+  const dniRegex = /^[0-9]{8}$/; // 8 dígitos numéricos (DNI)
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -32,6 +40,22 @@ function Register() {
     }
   };
 
+  // Validaciones en tiempo real
+  const handleNombreChange = (e) => {
+    setNombre(e.target.value);
+    setValidNombre(nombreRegex.test(e.target.value)); // Verificar si el nombre solo tiene letras y espacios
+  };
+
+  const handleApellidosChange = (e) => {
+    setApellidos(e.target.value);
+    setValidApellidos(apellidosRegex.test(e.target.value)); // Verificar si los apellidos solo tienen letras y espacios
+  };
+
+  const handleContraseñaChange = (e) => {
+    setContraseña(e.target.value);
+    setValidContraseña(dniRegex.test(e.target.value)); // Verificar si la contraseña es un DNI (8 dígitos)
+  };
+
   return (
     <div style={styles.registerBackground}>
       <div style={styles.registerContainer}>
@@ -40,68 +64,81 @@ function Register() {
           <div style={styles.elementItemBlue}>
             <div style={styles.elementSymbol}>C</div>
             <div style={styles.elementText}>Carbono</div>
-            <div style={styles.elementNumber}>6</div>
-            <div style={styles.elementCategory}>No metal</div>
+            <div style={styles.elementNumber}></div>
+            <div style={styles.elementCategory}></div>
           </div>
           <div style={styles.elementItemYellow}>
             <div style={styles.elementSymbol}>Re</div>
             <div style={styles.elementText}>Renio</div>
-            <div style={styles.elementNumber}>75</div>
-            <div style={styles.elementCategory}>Metal de transición</div>
+            <div style={styles.elementNumber}></div>
+            <div style={styles.elementCategory}></div>
           </div>
           <div style={styles.elementItemBlue}>
             <div style={styles.elementSymbol}>Ar</div>
             <div style={styles.elementText}>Argón</div>
-            <div style={styles.elementNumber}>18</div>
-            <div style={styles.elementCategory}>Gas noble</div>
+            <div style={styles.elementNumber}></div>
+            <div style={styles.elementCategory}></div>
           </div>
           <div style={styles.elementItemOrange}>
             <div style={styles.elementSymbol}>Cu</div>
             <div style={styles.elementText}>Cobre</div>
-            <div style={styles.elementNumber}>29</div>
-            <div style={styles.elementCategory}>Metal de transición</div>
+            <div style={styles.elementNumber}></div>
+            <div style={styles.elementCategory}></div>
           </div>
           <div style={styles.elementItemPink}>
             <div style={styles.elementSymbol}>En</div>
             <div style={styles.elementText}>Erbio</div>
-            <div style={styles.elementNumber}>68</div>
-            <div style={styles.elementCategory}>Lantanido</div>
+            <div style={styles.elementNumber}></div>
+            <div style={styles.elementCategory}></div>
           </div>
           <div style={styles.elementItemPurple}>
             <div style={styles.elementSymbol}>Ts</div>
             <div style={styles.elementText}>Tennessine</div>
-            <div style={styles.elementNumber}>117</div>
-            <div style={styles.elementCategory}>Halógeno</div>
+            <div style={styles.elementNumber}></div>
+            <div style={styles.elementCategory}></div>
           </div>
         </div>
 
         {/* Formulario de registro */}
-        <h2></h2>
         <form onSubmit={handleRegister} style={{ width: '100%' }}>
           <input
             type="text"
             placeholder="Nombre"
             value={nombre}
-            onChange={e => setNombre(e.target.value)}
+            onChange={handleNombreChange}
             required
             style={styles.input}
           />
+          {/* Mensaje de error si el nombre no es válido */}
+          {!validNombre && nombre.length > 0 && (
+            <p style={{ color: 'red' }}>El nombre solo puede contener letras y espacios.</p>
+          )}
+
           <input
             type="text"
             placeholder="Apellidos"
             value={apellidos}
-            onChange={e => setApellidos(e.target.value)}
+            onChange={handleApellidosChange}
             required
             style={styles.input}
           />
+          {/* Mensaje de error si los apellidos no son válidos */}
+          {!validApellidos && apellidos.length > 0 && (
+            <p style={{ color: 'red' }}>Los apellidos solo pueden contener letras y espacios.</p>
+          )}
+
           <input
             type="password"
-            placeholder="Contraseña"
+            placeholder="Contraseña (DNI)"
             value={contraseña}
-            onChange={e => setContraseña(e.target.value)}
+            onChange={handleContraseñaChange}
             required
             style={styles.input}
           />
+          {/* Mensaje de error si la contraseña no es válida */}
+          {!validContraseña && contraseña.length > 0 && (
+            <p style={{ color: 'red' }}>La contraseña debe ser un DNI válido (8 dígitos).</p>
+          )}
 
           <select
             value={rol}
@@ -109,10 +146,16 @@ function Register() {
             required
             style={styles.input}
           >
-          <option value="docente">Docente</option>
+            <option value="docente">Docente</option>
           </select>
 
-          <button type="submit" style={styles.submitButton}>Registrar</button>
+          <button
+            type="submit"
+            style={styles.submitButton}
+            disabled={!validNombre || !validApellidos || !validContraseña} // Deshabilitar el botón hasta que todos los campos sean válidos
+          >
+            Registrar
+          </button>
 
           {mensaje && <p style={{ color: 'green' }}>{mensaje}</p>}
           {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -213,5 +256,5 @@ const styles = {
     borderRadius: '4px',
   },
 };
-
+//primer commit
 export default Register;
