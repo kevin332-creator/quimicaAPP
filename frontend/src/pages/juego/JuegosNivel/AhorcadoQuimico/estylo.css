@@ -1,75 +1,90 @@
 /* Estilos para el ahorcado */
 .ahorcado-container {
-  max-width: 800px;
+  background-color: #87CEFA; /* Azul claro */
+  max-width: 7000px;
   margin: 0 auto;
   text-align: center;
   font-family: Arial, sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
 
-.imagen-ahorcado img {
-  height: 200px;
-  margin: 20px 0;
-}
-
-.palabra-oculta {
-  font-size: 2rem;
-  letter-spacing: 0.5rem;
-  margin: 20px 0;
-}
-
+/* Diseño del teclado */
 .teclado {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
   margin: 20px auto;
-  max-width: 500px;
+  max-width: 800px;
   margin-bottom: 20px;
+  background-color: #f5f5f5; /* Fondo gris claro */
+  padding: 20px;
+  border-radius: 10px;
 }
 
+/* Estilo de los botones de letras */
 .letra-btn {
-  padding: 10px;
-  font-size: 1.2rem;
+  padding: 15px;
+  font-size: 1.4rem;
   cursor: pointer;
   border: 2px solid #333;
   border-radius: 5px;
-  background: #f0f0f0;
+  background: #D7B68B; /* Fondo marrón claro */
   transition: all 0.2s;
+  color: white;
 }
 
 .letra-btn.acertada {
-  background: #4CAF50;
+  background: #4CAF50; /* Verde para la letra acertada */
   color: white;
   border-color: #4CAF50;
 }
 
 .letra-btn.fallada {
-  background: #f44336;
+  background: #f44336; /* Rojo para la letra fallada */
   color: white;
   border-color: #f44336;
 }
 
 .letra-btn:disabled {
   cursor: not-allowed;
+  background: #e0e0e0; /* Fondo gris claro para los botones deshabilitados */
 }
 
-.contador-intentos {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-.resultado {
+/* Estilo de la palabra oculta */
+.palabra-oculta {
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
   margin: 20px 0;
-  padding: 15px;
-  background: #f8f8f8;
-  border-radius: 5px;
+  font-weight: bold;
 }
 
-.pista {
-  font-style: italic;
-  color: #ffffff;
+/* Barra de progreso */
+.contador-intentos {
+  margin: 20px auto; /* Centrado de la barra de progreso */
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estilos para el mensaje correcto */
 .mensaje-correcto {
   background: #d4edda;
   color: #155724;
@@ -80,19 +95,21 @@
   font-weight: bold;
 }
 
+/* Fondo del modal de error */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.568);
+  background-color: rgba(55, 95, 121, 0.541); /* Fondo azul claro con opacidad */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
 }
 
+/* Modal de error */
 .modal-content-error {
   background-color: #ffffff !important;
   padding: 30px;
@@ -129,6 +146,7 @@
   background-color: #0056b3;
 }
 
+/* Estilo del título ganador y perdedor */
 .titulo-ganar {
   background-color: #28a745; /* verde éxito */
   color: white;
@@ -139,35 +157,7 @@
   color: white;
 }
 
-/* Estilos para la barra de progreso */
-/* Estilos para la barra de progreso */
-.contador-intentos {
-  margin: 20px auto; /* Cambiado de 20px 0 a 20px auto para centrar horizontalmente */
-  width: 100%;
-  max-width: 300px;
-  display: flex; /* Añadido */
-  flex-direction: column; /* Añadido */
-  align-items: center; /* Añadido para centrar contenido horizontalmente */
-  text-align: center; /* Añadido para centrar el texto */
-}
-
-
-.progress-bar-container {
-  width: 100%;
-  height: 20px;
-  background-color: #e0e0e0;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 8px;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.progress-bar {
-  height: 100%;
-  border-radius: 10px;
-  transition: width 0.3s ease, background-color 0.3s ease;
-}
-
+/* Animación de fade para los modales */
 @keyframes modalFade {
   from { opacity: 0; transform: scale(0.9); }
   to   { opacity: 1; transform: scale(1); }
